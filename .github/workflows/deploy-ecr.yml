@@ -1,0 +1,50 @@
+name: Deploy to ECR
+
+on:
+  push:
+    branches: [ main ]
+
+env:
+  AWS_REGION: us-west-2
+  ECR_REGISTRY: 442042515242.dkr.ecr.us-west-2.amazonaws.com
+  ECR_REPOSITORY: spooky-mart
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::442042515242:role/GHATestRole
+          aws-region: ${{ env.AWS_REGION }}
+      
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+      
+      - name: Build and push frontend
+        run: |
+          docker build -t ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:frontend-${{ github.sha }} ./frontend-service
+          docker push ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:frontend-${{ github.sha }}
+      
+      - name: Build and push API gateway
+        run: |
+          docker build -t ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:api-gateway-${{ github.sha }} ./api-gateway
+          docker push ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:api-gateway-${{ github.sha }}
+      
+      - name: Build and push product service
+        run: |
+          docker build -t ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:product-service-${{ github.sha }} ./product-service
+          docker push ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:product-service-${{ github.sha }}
+      
+      - name: Build and push order service
+        run: |
+          docker build -t ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:order-service-${{ github.sha }} ./order-service
+          docker push ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:order-service-${{ github.sha }}
