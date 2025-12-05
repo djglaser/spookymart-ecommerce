@@ -1,0 +1,145 @@
+[
+  {
+    "id": "prod-001",
+    "name": "Vampire Costume Deluxe",
+    "description": "Classic vampire costume with cape, fangs, and medallion. Perfect for Halloween parties!",
+    "price": 49.99,
+    "category": "Costumes",
+    "stock": 25,
+    "imageUrl": "https://example.com/vampire-costume.jpg",
+    "tags": [
+      "vampire",
+      "classic",
+      "cape",
+      "adult"
+    ],
+    "isActive": true,
+    "createdAt": "2024-10-01T00:00:00Z",
+    "updatedAt": "2024-10-01T00:00:00Z"
+  },
+  {
+    "id": "prod-002",
+    "name": "Spooky Jack-o'-Lantern",
+    "description": "Hand-carved pumpkin decoration with LED candle. Battery operated for safe indoor use.",
+    "price": 24.99,
+    "category": "Decorations",
+    "stock": 40,
+    "imageUrl": "https://example.com/jack-o-lantern.jpg",
+    "tags": [
+      "pumpkin",
+      "LED",
+      "decoration",
+      "safe"
+    ],
+    "isActive": true,
+    "createdAt": "2024-10-01T00:00:00Z",
+    "updatedAt": "2024-10-01T00:00:00Z"
+  },
+  {
+    "id": "prod-003",
+    "name": "Witch Hat Classic",
+    "description": "Traditional black witch hat with silver buckle. One size fits most adults.",
+    "price": 15.99,
+    "category": "Accessories",
+    "stock": 60,
+    "imageUrl": "https://example.com/witch-hat.jpg",
+    "tags": [
+      "witch",
+      "hat",
+      "black",
+      "classic"
+    ],
+    "isActive": true,
+    "createdAt": "2024-10-01T00:00:00Z",
+    "updatedAt": "2024-10-01T00:00:00Z"
+  },
+  {
+    "id": "prod-004",
+    "name": "Halloween Candy Mix",
+    "description": "Assorted Halloween candy including chocolate bars, gummy treats, and lollipops. 2lb bag.",
+    "price": 12.99,
+    "category": "Candy",
+    "stock": 100,
+    "imageUrl": "https://example.com/candy-mix.jpg",
+    "tags": [
+      "candy",
+      "chocolate",
+      "assorted",
+      "treats"
+    ],
+    "isActive": true,
+    "createdAt": "2024-10-01T00:00:00Z",
+    "updatedAt": "2024-10-01T00:00:00Z"
+  },
+  {
+    "id": "prod-005",
+    "name": "Zombie Makeup Kit",
+    "description": "Professional zombie makeup kit with fake blood, scars, and application tools.",
+    "price": 29.99,
+    "category": "Makeup",
+    "stock": 30,
+    "imageUrl": "https://example.com/zombie-makeup.jpg",
+    "tags": [
+      "zombie",
+      "makeup",
+      "professional",
+      "blood"
+    ],
+    "isActive": true,
+    "createdAt": "2024-10-01T00:00:00Z",
+    "updatedAt": "2024-10-01T00:00:00Z"
+  },
+  {
+    "id": "prod-006",
+    "name": "Skeleton Mask",
+    "description": "Realistic skeleton face mask with moveable jaw. Made from durable latex.",
+    "price": 19.99,
+    "category": "Masks",
+    "stock": 35,
+    "imageUrl": "https://example.com/skeleton-mask.jpg",
+    "tags": [
+      "skeleton",
+      "mask",
+      "latex",
+      "realistic"
+    ],
+    "isActive": true,
+    "createdAt": "2024-10-01T00:00:00Z",
+    "updatedAt": "2024-10-01T00:00:00Z"
+  },
+  {
+    "id": "8008cf89-4508-494b-82d7-43d7a6435a29",
+    "name": "Haunted House Decoration",
+    "description": "Miniature haunted house with spooky sound effects and LED lights",
+    "price": 89.99,
+    "category": "Decorations",
+    "stock": 12,
+    "imageUrl": "",
+    "tags": [
+      "haunted",
+      "house",
+      "LED",
+      "sounds"
+    ],
+    "isActive": true,
+    "createdAt": "2025-11-01T17:49:42.561Z",
+    "updatedAt": "2025-11-01T17:49:42.561Z"
+  },
+  {
+    "id": "0be0454d-209f-432b-9d2c-7a08cbe18a62",
+    "name": "Ghost Costume",
+    "description": "Classic white ghost costume with flowing fabric",
+    "price": 29.99,
+    "category": "Costumes",
+    "stock": 15,
+    "imageUrl": "",
+    "tags": [
+      "ghost",
+      "classic",
+      "white"
+    ],
+    "isActive": true,
+    "createdAt": "2025-11-01T18:02:15.434Z",
+    "updatedAt": "2025-11-01T18:02:15.434Z"
+  }
+]

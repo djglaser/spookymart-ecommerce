@@ -1,0 +1,49 @@
+{
+  "family": "spookymart-order-service",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "executionRoleArn": "arn:aws:iam::172859830594:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::172859830594:role/ecsTaskRole",
+  "containerDefinitions": [
+    {
+      "name": "order-service",
+      "image": "172859830594.dkr.ecr.us-west-2.amazonaws.com/spookymart-order-service:latest",
+      "portMappings": [
+        {
+          "containerPort": 3002,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [
+        {
+          "name": "ENVIRONMENT",
+          "value": "production"
+        },
+        {
+          "name": "PORT",
+          "value": "3002"
+        },
+        {
+          "name": "PRODUCT_SERVICE_URL",
+          "value": "http://44.246.201.111:3001"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/spookymart-order-service",
+          "awslogs-region": "us-west-2",
+          "awslogs-stream-prefix": "ecs",
+          "awslogs-create-group": "true"
+        }
+      }
+    }
+  ]
+}

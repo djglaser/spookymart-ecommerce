@@ -1,0 +1,31 @@
+# SpookyMart Order Processing Service Dependencies
+
+# Web Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+
+# Data Validation
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# HTTP Client (for Product Service integration)
+httpx==0.25.2
+aiohttp==3.9.1
+
+# Date/Time handling
+python-dateutil==2.8.2
+
+# UUID generation
+uuid==1.30
+
+# Environment variables
+python-dotenv==1.0.0
+
+# Logging
+structlog==23.2.0
+
+# Development dependencies
+pytest==7.4.3
+pytest-asyncio==0.21.1
+black==23.11.0
+flake8==6.1.0

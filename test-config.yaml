@@ -1,0 +1,105 @@
+# 🎃 SpookyMart Test Configuration
+# Environment-specific test parameters and expected values
+
+environments:
+  development:
+    alb_url: "http://spookymart-alb-dev.elb.amazonaws.com"
+    timeout: 10
+    max_retries: 3
+    performance_thresholds:
+      frontend_load_time: 5.0
+      api_response_time: 3.0
+      health_check_time: 2.0
+    expected_services:
+      - product-service
+      - order-service
+    
+  staging:
+    alb_url: "http://spookymart-alb-staging.elb.amazonaws.com"
+    timeout: 8
+    max_retries: 3
+    performance_thresholds:
+      frontend_load_time: 3.0
+      api_response_time: 2.0
+      health_check_time: 1.0
+    expected_services:
+      - product-service
+      - order-service
+
+  production:
+    alb_url: "http://spookymart-alb-1978027172.us-west-2.elb.amazonaws.com"
+    timeout: 5
+    max_retries: 5
+    performance_thresholds:
+      frontend_load_time: 3.0
+      api_response_time: 2.0
+      health_check_time: 1.0
+    expected_services:
+      - product-service
+      - order-service
+    critical_tests:
+      - "ALB Connectivity"
+      - "Service Connect Product Service Health"
+      - "Service Connect Order Service Health"
+      - "Frontend Content Load"
+      - "Products API Endpoint"
+      - "Orders API Endpoint"
+
+# Service Connect specific tests
+service_connect:
+  namespace: "spookymart"
+  services:
+    product-service:
+      dns_name: "product-service.spookymart"
+      port: 3001
+      health_endpoint: "/health"
+    order-service:
+      dns_name: "order-service.spookymart"
+      port: 3002
+      health_endpoint: "/health"
+  
+# Test data
+test_data:
+  customer_email: "test@spookymart.com"
+  test_product_id: "prod-001"
+  test_order_quantity: 1
+
+# Expected API responses
+expected_responses:
+  health_check:
+    status: "healthy"
+    required_fields:
+      - "status"
+      - "service"
+      - "timestamp"
+      - "services"
+  
+  products_api:
+    required_fields:
+      - "products"
+    min_products: 0
+  
+  orders_api:
+    required_fields:
+      - "orders"
+
+# Performance baselines (in seconds)
+performance_baselines:
+  frontend_load: 3.0
+  api_products: 2.0
+  api_orders: 2.0
+  health_check: 1.0
+  order_creation: 3.0
+
+# Monitoring and alerting
+monitoring:
+  success_rate_threshold: 95  # Minimum % of tests that must pass
+  performance_degradation_threshold: 50  # % slower than baseline before alert
+  
+# CI/CD integration settings
+ci_cd:
+  fail_on_performance_degradation: true
+  fail_on_security_issues: true
+  require_all_critical_tests: true
+  generate_junit_report: true
+  slack_notifications: true
